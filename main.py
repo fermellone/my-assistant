@@ -4,8 +4,6 @@ import assistant.assistant as assistant
 from utils.record_audio import record_audio
 from utils.save_audio_to_file import save_audio_to_file
 
-# env.set_env_variables()
-
 AUDIO_FILE_PATH = "test.wav"
 
 audio = record_audio()
