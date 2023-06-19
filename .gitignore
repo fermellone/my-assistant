@@ -1,0 +1,6 @@
+/venv
+/.vscode
+.env
+test.wav
+env.py
+__pycache__
