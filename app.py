@@ -20,6 +20,7 @@ def ask():
 
 
 def create_app():
+    print("app running")
     return app
 
 
