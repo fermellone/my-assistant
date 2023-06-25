@@ -13,7 +13,7 @@ def ask():
     body = request.get_json()
     prompt = body["prompt"]
     response = assistant.ask_assistant(prompt)
-    return {"ask": response}
+    return {"response": response}
 
 
 if __name__ == "__main__":
