@@ -25,6 +25,8 @@ def create_app():
 
 
 if __name__ == "__main__":
-    # if platform is macos the port should be 8081 else 5000
+    # If platform is macos the port should be 8081 else 5000.
+    # This is because airplay uses the port 5000 in macos and generates a conflict.
+    # But, as we are deploying the server in railway, we need to use the port 5000.
     print('platform: ' + platform.platform())
     app.run(port=8081 if platform.platform().startswith('macOS') else 5000)
