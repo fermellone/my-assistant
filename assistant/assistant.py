@@ -1,6 +1,6 @@
 def ask_assistant(transcription: str) -> str:
     import openai, os, json
-    from assistant.openai_functions import (
+    from assistant import (
         function_descriptions,
         available_functions,
     )
@@ -31,8 +31,6 @@ def ask_assistant(transcription: str) -> str:
     response_message = chat["choices"][0]["message"]
 
     if response_message.get("function_call"):
-        available_functions = available_functions
-
         function_name = response_message["function_call"]["name"]
         fuction_to_call = available_functions[function_name]
         function_args = json.loads(response_message["function_call"]["arguments"])
@@ -48,7 +46,7 @@ def ask_assistant(transcription: str) -> str:
         )
 
         second_response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-0613",
+            model="gpt-3.5-turbo",
             messages=messages,
         )
 
