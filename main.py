@@ -1,6 +1,8 @@
 import assistant
 from flask import Flask, request
 from flask_cors import CORS
+import os
+import platform
 
 app = Flask(__name__)
 CORS(app)
@@ -23,4 +25,6 @@ def create_app():
 
 
 if __name__ == "__main__":
-    app.run(port=5500)
+    # if platform is macos the port should be 8081 else 5000
+    print('platform: ' + platform.platform())
+    app.run(port=8081 if platform.platform().startswith('macOS') else 5000)
